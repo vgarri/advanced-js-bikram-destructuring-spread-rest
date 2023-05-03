@@ -60,7 +60,7 @@ describe('Ejercicios destructuring', function () {
     describe('Ejecicio 3 - Dadas las variables a y b intercambia sus valores', function () {
 
         it('la variable a tiene el valor correcto', function () {
-            expect(a).toEqual(3)
+            expect(a).toEqual(3);
         })
         it('la variable b tiene el valor correcto', function () {
             expect(b).toEqual(5);
