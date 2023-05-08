@@ -18,6 +18,13 @@ En esta ocasión, el bikram se dividirá en :crossed_swords: Pair Programming :c
 ### Destructuring arrays ###
 
 - [ ] 1.- Dado el objeto **empleados**, extrae la empleada Ana completa.
+```
+const empleados = [
+    { name: "Luis", email: "Luis@gmail.com" },
+    { name: "Ana", email: "Ana@gmail.com" },
+    { name: "Andrea", email: "Andrea@gmail.com" },
+];
+```
 
 - [ ] 2.- Dado el objeto **empleados**, extrae el email del empleado Luis --> Luis@gmail.com
 
@@ -79,7 +86,7 @@ countTheArgs("gato", "perro", "pollo", "oso"); //4
 
 - [ ] 9.- Escriba una función llamada onlyUniques que acepte cualquier número de argumentos y devuelva un array de elementos únicos, sin repetidos.
  ```
- onlyUniques("gato", "pollo", "cerdo", "cerdo"); //['gato', 'pollo', 'cerdo']
+ onlyUniques("gato", "pollo", "cerdo", "cerdo"); //["gato", "pollo", "cerdo"]
 onlyUniques(1, 1, 2, 2, 3, 6, 7, 8); //[1, 2, 3, 6, 7, 8]
 ```
 
