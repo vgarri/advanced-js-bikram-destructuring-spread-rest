@@ -8,6 +8,7 @@ const empleados = [
     { name: "Andrea", email: "Andrea@gmail.com" },
 ];
 let ana ={};
+//const [, Ana] = empleados
 ana.name = empleados[1].name;
 ana.email = empleados[1].email;
 
@@ -36,7 +37,8 @@ let b = 3;
 
 ```
 
-Cambiar las siguientes líneas para guardar mediante destructuración los valores de temperaturas en las variables maximaHoy y maximaManana
+Cambiar las siguientes líneas para guardar mediante destructuración los valores de 
+temperaturas en las variables maximaHoy y maximaManana
 
 ```
 
@@ -51,11 +53,9 @@ const HIGH_TEMPERATURES = {
     tomorrow: 32,
 };
 
-const { today, tomorrow } = HIGH_TEMPERATURES;
-console.log(today);
-console.log(tomorrow);
-const maximaHoy = HIGH_TEMPERATURES.today;
-const maximaManana = HIGH_TEMPERATURES.tomorrow;
+const { today: maximaHoy, tomorrow: maximaManana } = HIGH_TEMPERATURES;
+
+
 
 /* - [ ] 5.- Escribe una función llamada **sumEveryOther** que pueda recibir cualquier cantidad de números y 
 devuelva la suma de todos los demás argumentos.
@@ -76,7 +76,9 @@ addOnlyNums(1, "perro", 2, 4); //7
 ```*/
 function addOnlyNums(...m) {
     // return m.filter(m = Number).reduce((a,b)=> a+b,0);
-    return m.filter(elem => typeof elem === 'number').reduce((a,b)=> a+b,0);
+    return m
+    .filter(elem => typeof elem === 'number')
+    .reduce((a,b)=> a+b,0);
 }
 console.log(addOnlyNums(1, "perro", 2, 4));
 
@@ -96,7 +98,7 @@ console.log(countTheArgs("gato", "perro", "pollo", "oso"));
 /*- [ ] 8.- Escribe una función llamada **combineTwoArrays** que reciba dos array cómo argumentos 
 y devuelva solo un array que combine los dos (usando spread operator). */
 function combineTwoArrays(arr1,arr2){
-    return (arr1.concat(arr2));
+    return [...arr1,...arr2];
     //
 }
 console.log(combineTwoArrays([0,1],[0,2]));
@@ -112,12 +114,14 @@ function onlyUniques(...args){
     let uniques=[];
      args.forEach((elemento) =>{
         if(!uniques.includes(elemento)){
-            uniques.push(elemento);
+          uniques = [...uniques,elemento] //sustituye el push
+            // uniques.push(elemento);
         };
+
     });
     return uniques;
 }
-console.log(onlyUniques(1,2,1,1,1,2));
+console.log(onlyUniques(1,2,3,1,1,2));
 
 /* - [ ] 10.- Escriba una función llamada **combineAllArrays** que pueda recibir cualquier cantidad de arrays como argumentos y los combine todos en un solo array.
 
@@ -127,8 +131,9 @@ combineAllArrays([2, 7, 3, 1], [2, 7, 4, 12], [2, 44, 22, 7, 3, 1]); // [2, 7, 3
 ``` */
 function combineAllArrays(...arrays){
     let res10 = [];
- arrays.forEach((element0) => {
-    res10 = res10.concat(element0)
+ arrays.forEach((array_item) => {
+    //res10 = res10.concat(element0)
+    res10 = [...res10,...array_item]; // hace lo mismo que el concat
     
     });
     return res10;
